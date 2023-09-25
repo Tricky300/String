@@ -1,0 +1,55 @@
+/* Online Java Compiler and Editor */
+import java.util.*;
+ public class strength{
+public static void main(String []args){
+         Scanner sc=new Scanner(System.in);
+        System.out.println("enter the password");
+        String password=sc.next();
+        String strengths=getpassword(password);
+        System.out.println("password strength:"+strengths);
+}
+ public static String getpassword(String password)
+        {
+            boolean rule1=false;
+             boolean rule2=false;
+              boolean rule3=false;
+               boolean rule4=false;
+               for(char c:password.toCharArray())
+               {
+               if(Character.isUpperCase(c))
+               {
+                   rule1=true;
+               }
+               else if(Character.isLowerCase(c))
+               {
+                   rule2=true;
+               }
+                else if(Character.isDigit(c))
+                {
+                      rule3=true;
+                }
+                else if(!Character.isLetterOrDigit(c))
+                {
+                      rule4=true;
+                }
+         }
+ int satisfiedrules=(rule1 ?1:0) +(rule2 ?1:0) +(rule3 ?1:0) +(rule4 ?1:0);
+     if(satisfiedrules==4)
+     {
+         return"strong";
+     }
+     else if(satisfiedrules==3)
+     {
+          return"good";
+     }
+     else if(satisfiedrules==2)
+     {
+          return"medium";
+     }
+     else 
+     {
+          return"weak";
+     }
+   }
+ }
+
